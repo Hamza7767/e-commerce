@@ -1,1 +1,4 @@
-Flask==3.0.0
+Flask==3.0.3
+Flask-SQLAchemy==3.1.1
+Flask-Login==0.6.3
+Werkzeug==3.0.3
