@@ -48,11 +48,8 @@ def create_app(config_class=Config):
             count = CartItem.query.filter_by(user_id=current_user.id).count()
         return dict(cart_count=count)
 
-    with app.app_context():
+   with app.app_context():
         db.create_all()
 
-    return app
-
- app = create_app()
-    app = create_app()
-    app.run(debug=True, host="0.0.0.0", port=5000)
+   return app
+app = create_app()
