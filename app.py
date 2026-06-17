@@ -48,5 +48,5 @@ def create_app(config_class=Config):
             count = CartItem.query.filter_by(user_id=current_user.id).count()
         return dict(cart_count=count)
 
-   return app
+    return app
 app = create_app()
