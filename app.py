@@ -12,9 +12,14 @@ def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
 
+    # Vercel par static uploads temporary folder mein honi chahiye
     os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
     db.init_app(app)
+
+    # Database tables auto-create karne ke liye
+    with app.app_context():
+        db.create_all()
 
     login_manager = LoginManager()
     login_manager.login_view = "auth.login"
@@ -49,4 +54,6 @@ def create_app(config_class=Config):
         return dict(cart_count=count)
 
     return app
+
+
 app = create_app()
